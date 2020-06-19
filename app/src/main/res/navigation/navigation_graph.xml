@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_graph"
-    app:startDestination="@id/dashboardFragment">
+    app:startDestination="@id/dashboardPartnerFragment">
 
     <fragment
         android:id="@+id/welcomeFragment"
@@ -18,7 +18,10 @@
             app:destination="@id/registrationFragment" />
         <action
             android:id="@+id/action_welcomeFragment_to_dashboardFragment2"
-            app:destination="@id/dashboardFragment" />
+            app:destination="@id/dashboardPartnerFragment" />
+        <action
+            android:id="@+id/action_welcomeFragment_to_dashboardUserFragment22"
+            app:destination="@id/dashboardUserFragment" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
@@ -31,6 +34,12 @@
         <action
             android:id="@+id/action_loginFragment_to_welcomeFragment"
             app:destination="@id/welcomeFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_dashboardUserFragment"
+            app:destination="@id/dashboardUserFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_dashboardPartnerFragment"
+            app:destination="@id/dashboardPartnerFragment" />
     </fragment>
     <fragment
         android:id="@+id/splashFragment"
@@ -42,10 +51,10 @@
             app:destination="@id/welcomeFragment" />
     </fragment>
     <fragment
-        android:id="@+id/dashboardFragment"
-        android:name="com.example.lendvest.fragments.DashboardFragment"
+        android:id="@+id/dashboardPartnerFragment"
+        android:name="com.example.lendvest.fragments.DashboardPartnerFragment"
         android:label="fragment_dashboard"
-        tools:layout="@layout/fragment_dashboard" >
+        tools:layout="@layout/fragment_dashboard_partner" >
         <action
             android:id="@+id/action_dashboardFragment_to_accountFragment"
             app:destination="@id/accountFragment" />
@@ -79,6 +88,21 @@
         <action
             android:id="@+id/action_dashboardFragment_to_loanApplicationFragment"
             app:destination="@id/loanApplicationFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_loanDetailFragment"
+            app:destination="@id/loanDetailFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_loanOfferDetailFragment"
+            app:destination="@id/loanOfferDetailFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_investmentFragment"
+            app:destination="@id/investmentFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_investmentDetailFragment"
+            app:destination="@id/investmentDetailFragment" />
+        <action
+            android:id="@+id/action_dashboardPartnerFragment_to_loanAnalyticFragment"
+            app:destination="@id/loanAnalyticFragment" />
     </fragment>
     <fragment
         android:id="@+id/registrationFragment"
@@ -93,17 +117,47 @@
         android:id="@+id/accountFragment"
         android:name="com.example.lendvest.fragments.AccountFragment"
         android:label="fragment_account"
-        tools:layout="@layout/fragment_account" />
+        tools:layout="@layout/fragment_account" >
+        <action
+            android:id="@+id/action_accountFragment_to_accountPersonnalInfoFragment"
+            app:destination="@id/accountPersonnalInfoFragment" />
+        <action
+            android:id="@+id/action_accountFragment_to_documentFragment"
+            app:destination="@id/documentFragment" />
+    </fragment>
     <fragment
         android:id="@+id/loanFragment"
-        android:name="com.example.lendvest.fragments.LoanFragment"
+        android:name="com.example.lendvest.fragments.loan.LoanFragment"
         android:label="fragment_loan"
-        tools:layout="@layout/fragment_loan" />
+        tools:layout="@layout/fragment_loan" >
+        <action
+            android:id="@+id/action_loanFragment_to_loanApplicationFragment"
+            app:destination="@id/loanApplicationFragment" />
+        <action
+            android:id="@+id/action_loanFragment_to_loanOfferDetailFragment"
+            app:destination="@id/loanOfferDetailFragment" />
+        <action
+            android:id="@+id/action_loanFragment_to_loanDebtorFragment"
+            app:destination="@id/loanDebtorFragment" />
+        <action
+            android:id="@+id/action_loanFragment_to_loanDetailFragment"
+            app:destination="@id/loanDetailFragment" />
+        <action
+            android:id="@+id/action_loanFragment_to_loanRequestFragment"
+            app:destination="@id/loanRequestFragment" />
+        <action
+            android:id="@+id/action_loanFragment_to_loanPendingFragment"
+            app:destination="@id/loanPendingFragment" />
+    </fragment>
     <fragment
         android:id="@+id/notificationFragment"
         android:name="com.example.lendvest.fragments.NotificationFragment"
         android:label="fragment_notification"
-        tools:layout="@layout/fragment_notification" />
+        tools:layout="@layout/fragment_notification" >
+        <action
+            android:id="@+id/action_notificationFragment_to_notificationDetailFragment"
+            app:destination="@id/notificationDetailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/notificationDetailFragment"
         android:name="com.example.lendvest.fragments.NotificationDetailFragment"
@@ -113,12 +167,23 @@
         android:id="@+id/analyticsFragment"
         android:name="com.example.lendvest.fragments.AnalyticsFragment"
         android:label="fragment_analytics"
-        tools:layout="@layout/fragment_analytics" />
+        tools:layout="@layout/fragment_analytics" >
+        <action
+            android:id="@+id/action_analyticsFragment_to_analyticDetailFragment"
+            app:destination="@id/analyticDetailFragment" />
+        <action
+            android:id="@+id/action_analyticsFragment_to_expensesFragment"
+            app:destination="@id/expensesFragment" />
+    </fragment>
     <fragment
         android:id="@+id/investmentFragment"
         android:name="com.example.lendvest.fragments.InvestmentFragment"
         android:label="fragment_investment"
-        tools:layout="@layout/fragment_investment" />
+        tools:layout="@layout/fragment_investment" >
+        <action
+            android:id="@+id/action_investmentFragment_to_investmentDetailFragment"
+            app:destination="@id/investmentDetailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/profitFragment"
         android:name="com.example.lendvest.fragments.ProfitFragment"
@@ -141,11 +206,106 @@
         tools:layout="@layout/fragment_lending_overview" />
     <fragment
         android:id="@+id/loanApplicationFragment"
-        android:name="com.example.lendvest.fragments.LoanApplicationFragment"
+        android:name="com.example.lendvest.fragments.loan.LoanApplicationFragment"
         android:label="fragment_loan_application"
         tools:layout="@layout/fragment_loan_application" >
         <action
             android:id="@+id/action_loanApplicationFragment_to_dashboardFragment"
-            app:destination="@id/dashboardFragment" />
+            app:destination="@id/dashboardPartnerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/analyticDetailFragment"
+        android:name="com.example.lendvest.fragments.AnalyticDetailFragment"
+        android:label="fragment_analytic_detail"
+        tools:layout="@layout/fragment_analytic_detail" >
+        <action
+            android:id="@+id/action_analyticDetailFragment_to_analyticsFragment"
+            app:destination="@id/analyticsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/expensesFragment"
+        android:name="com.example.lendvest.fragments.ExpensesFragment"
+        android:label="fragment_expenses"
+        tools:layout="@layout/fragment_expenses" >
+        <action
+            android:id="@+id/action_expensesFragment_to_expenseDetailsFragment"
+            app:destination="@id/expenseDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/expenseDetailsFragment"
+        android:name="com.example.lendvest.fragments.ExpenseDetailsFragment"
+        android:label="fragment_expense_details"
+        tools:layout="@layout/fragment_expense_details" />
+    <fragment
+        android:id="@+id/loanOfferDetailFragment"
+        android:name="com.example.lendvest.fragments.loan.LoanOfferDetailFragment"
+        android:label="fragment_loan_offer_detail"
+        tools:layout="@layout/fragment_loan_offer_detail" />
+    <fragment
+        android:id="@+id/loanDebtorFragment"
+        android:name="com.example.lendvest.fragments.loan.LoanDebtorFragment"
+        android:label="fragment_loan_debtor"
+        tools:layout="@layout/fragment_loan_debtor" />
+    <fragment
+        android:id="@+id/loanDetailFragment"
+        android:name="com.example.lendvest.fragments.loan.LoanDetailFragment"
+        android:label="fragment_loan_detail"
+        tools:layout="@layout/fragment_loan_detail" />
+    <fragment
+        android:id="@+id/investmentDetailFragment"
+        android:name="com.example.lendvest.fragments.InvestmentDetailFragment"
+        android:label="fragment_investment_detail"
+        tools:layout="@layout/fragment_investment_detail" />
+    <fragment
+        android:id="@+id/accountPersonnalInfoFragment"
+        android:name="com.example.lendvest.fragments.AccountPersonalInfoFragment"
+        android:label="fragment_account_personnal_info"
+        tools:layout="@layout/fragment_account_personnal_info" />
+    <fragment
+        android:id="@+id/documentFragment"
+        android:name="com.example.lendvest.DocumentFragment"
+        android:label="fragment_document"
+        tools:layout="@layout/fragment_document" />
+    <fragment
+        android:id="@+id/documentCheckFragment"
+        android:name="com.example.lendvest.DocumentCheckFragment"
+        android:label="fragment_document_check"
+        tools:layout="@layout/fragment_document_check" />
+    <fragment
+        android:id="@+id/dashboardUserFragment"
+        android:name="com.example.lendvest.fragments.DashboardUserFragment"
+        android:label="DashboardUserFragment" >
+        <action
+            android:id="@+id/action_dashboardUserFragment_to_loanApplicationFragment"
+            app:destination="@id/loanApplicationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loanRequestFragment"
+        android:name="com.example.lendvest.fragments.loan.LoanRequestFragment"
+        android:label="fragment_loan_request"
+        tools:layout="@layout/fragment_loan_request" />
+    <fragment
+        android:id="@+id/loanAnalyticFragment"
+        android:name="com.example.lendvest.fragments.loan.LoanAnalyticFragment"
+        android:label="fragment_loan_analytic"
+        tools:layout="@layout/fragment_loan_analytic" />
+    <fragment
+        android:id="@+id/loanPendingFragment"
+        android:name="com.example.lendvest.fragments.loan.LoanPendingFragment"
+        android:label="fragment_loan_pending"
+        tools:layout="@layout/fragment_loan_pending" >
+        <action
+            android:id="@+id/action_loanPendingFragment_to_fileDataFragment"
+            app:destination="@id/fileDataFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/fileDataFragment"
+        android:name="com.example.lendvest.fragments.FileDataFragment"
+        android:label="fragment_file_data"
+        tools:layout="@layout/fragment_file_data" >
+        <argument
+            android:name="imageResourceId"
+            app:argType="integer"
+            android:defaultValue="0" />
     </fragment>
 </navigation>

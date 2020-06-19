@@ -1,23 +1,116 @@
-<?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.LoanApplicationFragment">
+    android:layout_marginTop="?android:attr/actionBarSize"
+    android:layout_marginBottom="?android:attr/actionBarSize"
+    android:background="@color/scrollViewColor"
+    tools:context=".fragments.loan.LoanApplicationFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-    <com.github.mikephil.charting.charts.PieChart
-        android:id="@+id/pie_chart_app_lending"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="8dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:fillViewport="true"/>
+<!--        <androidx.cardview.widget.CardView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="5dp"-->
+<!--            android:backgroundTint="@color/white">-->
 
-</FrameLayout>
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="vertical">-->
+
+<!--                <RelativeLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content">-->
+
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:orientation="vertical">-->
+
+<!--                        <TextView-->
+<!--                            android:id="@+id/text_view_pax_type"-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginStart="5dp"-->
+<!--                            android:text="Personal Info"-->
+<!--                            android:textColor="@color/colorPrimary"-->
+<!--                            android:textSize="18sp" />-->
+
+<!--                        <com.google.android.material.textfield.TextInputLayout-->
+<!--                            android:id="@+id/text_input_layout_first_name"-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="62dp"-->
+<!--                            android:layout_marginTop="10dp"-->
+<!--                            android:hint="First name"-->
+<!--                            app:errorEnabled="true">-->
+
+<!--                            <com.google.android.material.textfield.TextInputEditText-->
+<!--                                android:id="@+id/text_input_first_name"-->
+<!--                                android:layout_width="match_parent"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:inputType="textAutoComplete"-->
+<!--                                android:singleLine="true" />-->
+<!--                        </com.google.android.material.textfield.TextInputLayout>-->
+
+<!--&lt;!&ndash;                        <com.google.android.material.textfield.TextInputLayout&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:id="@+id/text_input_layout_middle_name"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_height="62dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:hint="@string/field_middle_name"&ndash;&gt;-->
+<!--&lt;!&ndash;                            app:errorEnabled="true">&ndash;&gt;-->
+
+<!--&lt;!&ndash;                            <com.google.android.material.textfield.TextInputEditText&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:id="@+id/text_input_middle_name"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:inputType="textAutoComplete"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:singleLine="true" />&ndash;&gt;-->
+<!--&lt;!&ndash;                        </com.google.android.material.textfield.TextInputLayout>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                        <com.google.android.material.textfield.TextInputLayout&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:id="@+id/text_input_layout_last_name"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_height="62dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:hint="@string/field_last_name"&ndash;&gt;-->
+<!--&lt;!&ndash;                            app:errorEnabled="true">&ndash;&gt;-->
+
+<!--&lt;!&ndash;                            <com.google.android.material.textfield.TextInputEditText&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:id="@+id/text_input_last_name"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:inputType="textAutoComplete"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:singleLine="true" />&ndash;&gt;-->
+<!--&lt;!&ndash;                        </com.google.android.material.textfield.TextInputLayout>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                        <com.google.android.material.textfield.TextInputLayout&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:id="@+id/text_input_layout_id_number"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_height="62dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:hint="@string/field_id_number"&ndash;&gt;-->
+<!--&lt;!&ndash;                            app:errorEnabled="true">&ndash;&gt;-->
+
+<!--&lt;!&ndash;                            <com.google.android.material.textfield.TextInputEditText&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:id="@+id/text_input_id_number"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:inputType="textAutoComplete"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:singleLine="true" />&ndash;&gt;-->
+<!--&lt;!&ndash;                        </com.google.android.material.textfield.TextInputLayout>&ndash;&gt;-->
+<!--                    </LinearLayout>-->
+<!--                </RelativeLayout>-->
+<!--            </LinearLayout>-->
+<!--        </androidx.cardview.widget.CardView>-->
+        <com.stepstone.stepper.StepperLayout
+            android:id="@+id/stepperLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:ms_stepperType="tabs" />
+    </LinearLayout>
+
+</ScrollView>

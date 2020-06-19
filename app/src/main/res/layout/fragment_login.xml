@@ -68,6 +68,23 @@
                 android:theme="@style/CustomTheme.EditText" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <RadioButton android:id="@+id/radio_btn_login_partner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:buttonTint="@color/colorAccent"
+                android:text="Partner"/>
+            <RadioButton android:id="@+id/radio_btn_login_user"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:buttonTint="@color/colorAccent"
+                android:text="User"/>
+        </RadioGroup>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/material_button_login"
@@ -76,7 +93,7 @@
             android:layout_marginTop="24dp"
             android:layout_marginBottom="24dp"
             android:padding="12dp"
-            android:background="@color/colorAccent"
+            android:backgroundTint="@color/colorAccent"
             android:textColor="@color/white"
             android:text="@string/button_label_login"/>
 

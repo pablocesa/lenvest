@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <item android:title="@string/overview"
         android:id="@+id/bottom_nav_menu_item_overview"
         android:icon="@drawable/ic_window_of_four_rounded_squares"/>
@@ -12,4 +13,10 @@
     <item android:title="@string/loans"
         android:id="@+id/bottom_nav_menu_item_loans"
         android:icon="@drawable/ic_loan"/>
+    <item
+        android:id="@+id/bottom_nav_menu_item_notification"
+        android:icon="@drawable/ic_notifications_black_24dp"
+        android:title="@string/notification"
+        app:actionLayout="@layout/layout_toolbar_badge_layout"
+        app:showAsAction="always"/>
 </menu>

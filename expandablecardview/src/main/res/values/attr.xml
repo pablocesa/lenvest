@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="ExpandableCardView">
-        <attr name="title" format="string"/>
-        <attr name="icon" format="reference"/>
-        <attr name="inner_view" format="reference"/>
-        <attr name="expandOnClick" format="boolean"/>
-        <attr name="animationDuration" format="integer"/>
-        <attr name="startExpanded" format="boolean"/>
-        <attr name="header_margin_left" format="dimension"/>
+        <attr name="title" format="string" />
+        <attr name="titleTextSize" format="dimension" />
+        <attr name="cardTitleTextStyle">
+            <flag name="normal" value="0" />
+            <flag name="bold" value="1" />
+            <flag name="italic" value="2" />
+        </attr>
+        <attr name="titleTextColor" format="color" />
+        <attr name="icon" format="reference" />
+        <attr name="inner_view" format="reference" />
+        <attr name="expandOnClick" format="boolean" />
+        <attr name="animationDuration" format="integer" />
+        <attr name="startExpanded" format="boolean" />
+        <attr name="header_margin_left" format="dimension" />
     </declare-styleable>
 </resources>

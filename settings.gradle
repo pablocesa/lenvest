@@ -1,2 +1,2 @@
-include ':app', ':expandablecardview', ':progressbar'
+include ':app', ':expandablecardview', ':progressbar', ':signaturepad'
 rootProject.name='Lendvest'

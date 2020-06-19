@@ -3,14 +3,17 @@ package com.example.expandablecardview
 
 import android.content.Context
 import android.content.res.TypedArray
+import android.graphics.Color
+import android.graphics.Typeface
 import android.graphics.drawable.Drawable
 import android.os.Build
-import androidx.core.content.ContextCompat
 import android.text.TextUtils
 import android.util.AttributeSet
 import android.util.Log
+import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.OnClickListener
 import android.view.animation.Animation
 import android.view.animation.RotateAnimation
 import android.view.animation.Transformation
@@ -18,7 +21,7 @@ import android.widget.LinearLayout
 import androidx.annotation.DrawableRes
 import androidx.annotation.RequiresApi
 import androidx.annotation.StringRes
-import androidx.core.view.marginStart
+import androidx.core.content.ContextCompat
 import kotlinx.android.synthetic.main.layout_expandable_cardview.view.*
 
 /**
@@ -43,9 +46,16 @@ import kotlinx.android.synthetic.main.layout_expandable_cardview.view.*
  * @author Alessandro Sperotti
  */
 
-class ExpandableCardView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : LinearLayout(context, attrs, defStyleAttr) {
+class ExpandableCardView @JvmOverloads constructor(
+    context: Context,
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = 0
+) : LinearLayout(context, attrs, defStyleAttr) {
 
     private var title: String? = null
+    private var titleTextSize: Int = 0
+    private var titleTextStyle: Int = 0
+    private var titleTextColor: Int = Color.BLACK
     private var headerMarginLeft: Int = 0
 
     private var innerView: View? = null
@@ -83,6 +93,7 @@ class ExpandableCardView @JvmOverloads constructor(context: Context, attrs: Attr
         attrs?.let {
             initAttributes(context, attrs)
         }
+
     }
 
     private fun initView(context: Context) {
@@ -94,16 +105,26 @@ class ExpandableCardView @JvmOverloads constructor(context: Context, attrs: Attr
         //Ottengo attributi
         val typedArray = context.obtainStyledAttributes(attrs, R.styleable.ExpandableCardView)
         this@ExpandableCardView.typedArray = typedArray
-        title = typedArray.getString(R.styleable.ExpandableCardView_title)
+        title         = typedArray.getString(R.styleable.ExpandableCardView_title)
+        titleTextSize = typedArray.getDimensionPixelSize(R.styleable.ExpandableCardView_titleTextSize, 0)
+        titleTextColor = typedArray.getColor(R.styleable.ExpandableCardView_titleTextColor, Color.BLACK)
+        titleTextStyle = typedArray.getInt(R.styleable.ExpandableCardView_cardTitleTextStyle, 0)
         headerMarginLeft = typedArray.getDimensionPixelSize(R.styleable.ExpandableCardView_header_margin_left, 0)
         iconDrawable = typedArray.getDrawable(R.styleable.ExpandableCardView_icon)
         innerViewRes = typedArray.getResourceId(R.styleable.ExpandableCardView_inner_view, View.NO_ID)
         expandOnClick = typedArray.getBoolean(R.styleable.ExpandableCardView_expandOnClick, false)
-        animDuration = typedArray.getInteger(R.styleable.ExpandableCardView_animationDuration,
+        animDuration = typedArray.getInteger(
+            R.styleable.ExpandableCardView_animationDuration,
             DEFAULT_ANIM_DURATION
         ).toLong()
         startExpanded = typedArray.getBoolean(R.styleable.ExpandableCardView_startExpanded, false)
         typedArray.recycle()
+    }
+
+    fun setUpTitle(){
+        card_title.setTextColor(titleTextColor)
+        card_title.setTextSize(TypedValue.COMPLEX_UNIT_PX, titleTextSize.toFloat());
+        setTypefaceFromAttrs(titleTextStyle)
     }
 
     @RequiresApi(Build.VERSION_CODES.JELLY_BEAN)
@@ -111,11 +132,13 @@ class ExpandableCardView @JvmOverloads constructor(context: Context, attrs: Attr
         super.onFinishInflate()
 
         //Setting attributes
-        if (! TextUtils.isEmpty(title)) card_title.text = title
+        if (!TextUtils.isEmpty(title)) card_title.text = title
 
-        if (headerMarginLeft!! > 0){
+        setUpTitle()
+
+        if (headerMarginLeft > 0) {
             val params = card_header_expandable_view.layoutParams as LinearLayout.LayoutParams
-            params.marginStart = this.headerMarginLeft as Int
+            params.marginStart = this.headerMarginLeft
             card_header_expandable_view.layoutParams = params
         }
 
@@ -143,15 +166,19 @@ class ExpandableCardView @JvmOverloads constructor(context: Context, attrs: Attr
 
     fun expand() {
         val initialHeight = card_layout.height
-        if (! isMoving) {
+        if (!isMoving) {
             previousHeight = initialHeight
         }
 
-        card_layout.measure(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT)
+        card_layout.measure(
+            LinearLayout.LayoutParams.MATCH_PARENT,
+            LinearLayout.LayoutParams.WRAP_CONTENT
+        )
         val targetHeight = card_layout.measuredHeight
 
         if (targetHeight - initialHeight != 0) {
-            animateViews(initialHeight,
+            animateViews(
+                initialHeight,
                 targetHeight - initialHeight,
                 EXPANDING
             )
@@ -161,7 +188,8 @@ class ExpandableCardView @JvmOverloads constructor(context: Context, attrs: Attr
     fun collapse() {
         val initialHeight = card_layout.measuredHeight
         if (initialHeight - previousHeight != 0) {
-            animateViews(initialHeight,
+            animateViews(
+                initialHeight,
                 initialHeight - previousHeight,
                 COLLAPSING
             )
@@ -205,11 +233,15 @@ class ExpandableCardView @JvmOverloads constructor(context: Context, attrs: Attr
         }
 
         val arrowAnimation = if (animationType == EXPANDING)
-            RotateAnimation(0f, 180f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF,
-                0.5f)
+            RotateAnimation(
+                0f, 180f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF,
+                0.5f
+            )
         else
-            RotateAnimation(180f, 0f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF,
-                0.5f)
+            RotateAnimation(
+                180f, 0f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF,
+                0.5f
+            )
 
         arrowAnimation.fillAfter = true
 
@@ -221,7 +253,10 @@ class ExpandableCardView @JvmOverloads constructor(context: Context, attrs: Attr
         isCollapsing = animationType == COLLAPSING
 
         startAnimation(expandAnimation)
-        Log.d("SO", "Started animation: " + if (animationType == EXPANDING) "Expanding" else "Collapsing")
+        Log.d(
+            "SO",
+            "Started animation: " + if (animationType == EXPANDING) "Expanding" else "Collapsing"
+        )
         card_arrow.startAnimation(arrowAnimation)
         isExpanded = animationType == EXPANDING
 
@@ -270,6 +305,24 @@ class ExpandableCardView @JvmOverloads constructor(context: Context, attrs: Attr
     private fun setInnerView(resId: Int) {
         card_stub.layoutResource = resId
         innerView = card_stub.inflate()
+    }
+
+    private fun setTypefaceFromAttrs(styleIndex: Int) {
+        card_title.typeface = Typeface.DEFAULT
+        when (styleIndex) {
+            0 -> {
+                card_title.setTypeface(null, Typeface.NORMAL)
+            }
+            1 -> {
+                card_title.setTypeface(null, Typeface.BOLD)
+            }
+            2 -> {
+                card_title.setTypeface(null, Typeface.ITALIC)
+            }
+            3 -> {
+                card_title.setTypeface(null, Typeface.BOLD_ITALIC)
+            }
+        }
     }
 
 

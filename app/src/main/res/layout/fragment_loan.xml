@@ -1,14 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.LoanFragment">
+    android:layout_marginTop="?android:attr/actionBarSize"
+    android:layout_marginBottom="?android:attr/actionBarSize"
+    android:background="@color/scrollViewColor"
+    tools:context=".fragments.loan.LoanFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/view_pager_loans"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent">
 
+        <androidx.viewpager.widget.PagerTabStrip
+            android:id="@+id/pager_title_strip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            app:tabIndicatorColor="@color/colorAccent" />
+    </androidx.viewpager.widget.ViewPager>
+
+    <com.leinardi.android.speeddial.SpeedDialOverlayLayout
+        android:id="@+id/speed_dial_overlay_loan"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <com.leinardi.android.speeddial.SpeedDialView
+        android:id="@+id/speed_dial_loan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        app:sdOverlayLayout="@id/speed_dial_overlay_loan"
+        app:sdMainFabClosedSrc="@drawable/ic_add_black_24dp" />
 </FrameLayout>

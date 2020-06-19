@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="?android:attr/actionBarSize"
+    android:layout_marginBottom="?android:attr/actionBarSize"
+    tools:context=".DocumentCheckFragment">
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content">
+      <!-- TODO: Update blank fragment layout -->
+      <TextView
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:text="Super Mario is a Japanese platform video game series and media franchise created by Nintendo and featuring their mascot, Mario. Alternatively called the Super Mario Bros. series or simply the Mario series, it is the central series of the greater Mario franchise." />
+
+  </LinearLayout>
+</FrameLayout>
