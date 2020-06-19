@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="@string/overview"
+        android:id="@+id/bottom_nav_menu_item_overview"
+        android:icon="@drawable/ic_window_of_four_rounded_squares"/>
+    <item android:title="@string/analytics"
+        android:id="@+id/bottom_nav_menu_item_analytics"
+        android:icon="@drawable/ic_analytics"/>
+    <item android:title="@string/investment"
+        android:id="@+id/bottom_nav_menu_item_investment"
+        android:icon="@drawable/ic_investment"/>
+    <item android:title="@string/loans"
+        android:id="@+id/bottom_nav_menu_item_loans"
+        android:icon="@drawable/ic_loan"/>
+</menu>

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/dashboardFragment">
+
+    <fragment
+        android:id="@+id/welcomeFragment"
+        android:name="com.example.lendvest.fragments.WelcomeFragment"
+        android:label="fragment_welcome"
+        tools:layout="@layout/fragment_welcome" >
+        <action
+            android:id="@+id/action_welcomeFragment_to_loginFragment4"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_welcomeFragment_to_registrationFragment"
+            app:destination="@id/registrationFragment" />
+        <action
+            android:id="@+id/action_welcomeFragment_to_dashboardFragment2"
+            app:destination="@id/dashboardFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.lendvest.fragments.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_registrationFragment2"
+            app:destination="@id/registrationFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_welcomeFragment"
+            app:destination="@id/welcomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.example.lendvest.fragments.SplashFragment"
+        android:label="fragment_splash2"
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/action_splashFragment_to_welcomeFragment"
+            app:destination="@id/welcomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/dashboardFragment"
+        android:name="com.example.lendvest.fragments.DashboardFragment"
+        android:label="fragment_dashboard"
+        tools:layout="@layout/fragment_dashboard" >
+        <action
+            android:id="@+id/action_dashboardFragment_to_accountFragment"
+            app:destination="@id/accountFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_loanFragment"
+            app:destination="@id/loanFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_notificationFragment"
+            app:destination="@id/notificationFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_notificationFragment2"
+            app:destination="@id/notificationFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_notificationFragment3"
+            app:destination="@id/notificationFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_notificationDetailFragment"
+            app:destination="@id/notificationDetailFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_profitOverviewFragment"
+            app:destination="@id/profitOverviewFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_investmentOverviewFragment"
+            app:destination="@id/investmentOverviewFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_analyticsFragment"
+            app:destination="@id/analyticsFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_lendingOverviewFragment"
+            app:destination="@id/lendingOverviewFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_loanApplicationFragment"
+            app:destination="@id/loanApplicationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registrationFragment"
+        android:name="com.example.lendvest.fragments.RegistrationFragment"
+        android:label="fragment_registration"
+        tools:layout="@layout/fragment_registration" >
+        <action
+            android:id="@+id/action_registrationFragment_to_welcomeFragment"
+            app:destination="@id/welcomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/accountFragment"
+        android:name="com.example.lendvest.fragments.AccountFragment"
+        android:label="fragment_account"
+        tools:layout="@layout/fragment_account" />
+    <fragment
+        android:id="@+id/loanFragment"
+        android:name="com.example.lendvest.fragments.LoanFragment"
+        android:label="fragment_loan"
+        tools:layout="@layout/fragment_loan" />
+    <fragment
+        android:id="@+id/notificationFragment"
+        android:name="com.example.lendvest.fragments.NotificationFragment"
+        android:label="fragment_notification"
+        tools:layout="@layout/fragment_notification" />
+    <fragment
+        android:id="@+id/notificationDetailFragment"
+        android:name="com.example.lendvest.fragments.NotificationDetailFragment"
+        android:label="fragment_notification_detail"
+        tools:layout="@layout/fragment_notification_detail" />
+    <fragment
+        android:id="@+id/analyticsFragment"
+        android:name="com.example.lendvest.fragments.AnalyticsFragment"
+        android:label="fragment_analytics"
+        tools:layout="@layout/fragment_analytics" />
+    <fragment
+        android:id="@+id/investmentFragment"
+        android:name="com.example.lendvest.fragments.InvestmentFragment"
+        android:label="fragment_investment"
+        tools:layout="@layout/fragment_investment" />
+    <fragment
+        android:id="@+id/profitFragment"
+        android:name="com.example.lendvest.fragments.ProfitFragment"
+        android:label="fragment_profit"
+        tools:layout="@layout/fragment_profit" />
+    <fragment
+        android:id="@+id/investmentOverviewFragment"
+        android:name="com.example.lendvest.fragments.InvestmentOverviewFragment"
+        android:label="fragment_investment_overview"
+        tools:layout="@layout/fragment_investment_overview" />
+    <fragment
+        android:id="@+id/profitOverviewFragment"
+        android:name="com.example.lendvest.fragments.ProfitOverviewFragment"
+        android:label="fragment_profit_overview"
+        tools:layout="@layout/fragment_profit_overview" />
+    <fragment
+        android:id="@+id/lendingOverviewFragment"
+        android:name="com.example.lendvest.fragments.LendingOverviewFragment"
+        android:label="fragment_lending_overview"
+        tools:layout="@layout/fragment_lending_overview" />
+    <fragment
+        android:id="@+id/loanApplicationFragment"
+        android:name="com.example.lendvest.fragments.LoanApplicationFragment"
+        android:label="fragment_loan_application"
+        tools:layout="@layout/fragment_loan_application" >
+        <action
+            android:id="@+id/action_loanApplicationFragment_to_dashboardFragment"
+            app:destination="@id/dashboardFragment" />
+    </fragment>
+</navigation>

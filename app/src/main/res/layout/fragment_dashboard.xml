@@ -1,0 +1,671 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="?android:attr/actionBarSize"
+    android:layout_marginBottom="?android:attr/actionBarSize"
+    android:background="@color/scrollViewColor"
+    tools:context=".fragments.DashboardFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_gravity="center"
+                android:background="@color/colorPrimary"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+<!--                    <com.github.mikephil.charting.charts.LineChart-->
+<!--                        android:id="@+id/line_chart_dashboard_net_worth"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="400dp" />-->
+
+                    <com.github.mikephil.charting.charts.LineChart
+                        android:id="@+id/line_chart_dashboard"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="5dp"
+                        android:padding="9dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+<!--            <include-->
+<!--                layout="@layout/layout_view_grid_dashboard"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_alignParentStart="true"-->
+<!--                android:layout_alignParentTop="true"-->
+<!--                android:layout_alignParentEnd="true"-->
+<!--                android:layout_marginStart="13dp"-->
+<!--                android:layout_marginTop="178dp"-->
+<!--                android:layout_marginEnd="13dp" />-->
+
+
+            <com.google.android.flexbox.FlexboxLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="228dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                app:alignContent="stretch"
+                app:alignItems="stretch"
+                app:flexWrap="wrap">
+
+
+                <android.widget.GridLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:alignmentMode="alignMargins"
+                    android:columnCount="3"
+                    android:columnOrderPreserved="false"
+                    android:horizontalSpacing="5dp"
+                    android:rowCount="1">
+
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/card_view_dashboard_invested"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/dashboard_flex_item_height"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="4dp"
+                        android:backgroundTint="@color/white"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardElevation="6dp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/ic_shape_header_stroke"
+                                android:orientation="horizontal">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Invest"
+                                    android:padding="4dp"
+                                    android:textColor="@color/colorPrimaryDark"
+                                    android:textSize="18dp"/>
+                                <Space
+                                    android:layout_width="0dp"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1" />
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:padding="4dp"
+                                    android:src="@drawable/ic_investment"
+                                    android:tint="@color/colorPrimary"
+                                    android:gravity="end"/>
+                            </LinearLayout>
+
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center_horizontal|center_vertical"
+                                android:orientation="vertical">
+
+<!--                                <com.example.progressbar.CircleProgressBar-->
+<!--                                    android:layout_width="60dp"-->
+<!--                                    android:layout_height="60dp"-->
+<!--                                    android:layout_marginTop="8dp"-->
+<!--                                    app:progress="35"-->
+<!--                                    app:progressBarThickness="4dp"-->
+<!--                                    app:progressbarColor="@color/colorPrimary"/>-->
+
+                                <com.example.progressbar.CircularProgressView
+                                    android:layout_width="60dp"
+                                    android:layout_height="60dp"
+                                    android:id="@+id/progress_view_dashboard_invest"
+                                    android:layout_marginTop="8dp"
+                                    app:animate="true"
+                                    app:animateDuration="600"
+                                    app:fillColor="@color/white"
+                                    app:progressValue="10"
+                                    app:progressColor="@color/colorPrimary"
+                                    app:progressInterpolator="@android:anim/accelerate_decelerate_interpolator"
+                                    app:progressRoundCap="true"
+                                    app:progressTextColor="@color/colorPrimary"
+                                    app:progressTextEnabled="true"
+                                    app:progressTextSize="18sp"
+                                    app:progressTextType="progress"
+                                    app:progressWidth="4dp"
+                                    app:startAngle="270"
+                                    app:totalValue="100"
+                                    app:totalWidth="5dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="12dp"
+                                    android:text="@string/app_name"
+                                    android:textColor="@color/colorPrimaryDark"
+                                    android:textSize="16sp" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/card_view_dashboard_profit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/dashboard_flex_item_height"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="4dp"
+                        android:backgroundTint="@color/white"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardElevation="6dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/ic_shape_header_stroke"
+                                android:orientation="horizontal">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Profit"
+                                    android:padding="4dp"
+                                    android:textColor="@color/colorPrimaryDark"
+                                    android:textSize="18dp"/>
+                                <Space
+                                    android:layout_width="0dp"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1" />
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:padding="4dp"
+                                    android:src="@drawable/ic_banking"
+                                    android:tint="@color/colorPrimary"
+                                    android:gravity="end"/>
+                            </LinearLayout>
+
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center_horizontal|center_vertical"
+                                android:orientation="vertical">
+
+                                <com.example.progressbar.CircularProgressView
+                                    android:layout_width="60dp"
+                                    android:layout_height="60dp"
+                                    android:id="@+id/progress_view_dashboard_profit"
+                                    android:layout_marginTop="8dp"
+                                    app:animate="true"
+                                    app:animateDuration="600"
+                                    app:fillColor="@color/white"
+                                    app:progressValue="10"
+                                    app:progressColor="@color/colorPrimary"
+                                    app:progressInterpolator="@android:anim/accelerate_decelerate_interpolator"
+                                    app:progressRoundCap="true"
+                                    app:progressTextColor="@color/colorPrimary"
+                                    app:progressTextEnabled="true"
+                                    app:progressTextSize="18sp"
+                                    app:progressTextType="progress"
+                                    app:progressWidth="4dp"
+                                    app:startAngle="270"
+                                    app:totalValue="100"
+                                    app:totalWidth="5dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="12dp"
+                                    android:text="@string/app_name"
+                                    android:textColor="@color/colorPrimaryDark"
+                                    android:textSize="16sp" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/card_view_dashboard_loans"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/dashboard_flex_item_height"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="4dp"
+                        android:backgroundTint="@color/white"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardElevation="6dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/ic_shape_header_stroke"
+                                android:orientation="horizontal"
+                                android:layout_gravity="center">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Loans"
+                                    android:padding="4dp"
+                                    android:textColor="@color/colorPrimaryDark"
+                                    android:textSize="18dp"/>
+                                <Space
+                                    android:layout_width="0dp"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1" />
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:padding="4dp"
+                                    android:src="@drawable/ic_loan"
+                                    android:tint="@color/colorPrimary"
+                                    android:gravity="end"/>
+
+                            </LinearLayout>
+
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center_horizontal|center_vertical"
+                                android:orientation="vertical">
+
+                                <com.example.progressbar.CircularProgressView
+                                    android:layout_width="60dp"
+                                    android:layout_height="60dp"
+                                    android:id="@+id/progress_view_dashboard_loans"
+                                    android:layout_marginTop="8dp"
+                                    app:animate="true"
+                                    app:animateDuration="600"
+                                    app:fillColor="@color/white"
+                                    app:progressValue="10"
+                                    app:progressColor="@color/colorPrimary"
+                                    app:progressInterpolator="@android:anim/accelerate_decelerate_interpolator"
+                                    app:progressRoundCap="true"
+                                    app:progressTextColor="@color/colorPrimary"
+                                    app:progressTextEnabled="true"
+                                    app:progressTextSize="18sp"
+                                    app:progressTextType="percent"
+                                    app:progressWidth="4dp"
+                                    app:startAngle="270"
+                                    app:totalValue="100"
+                                    app:totalWidth="5dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="12dp"
+                                    android:text="@string/app_name"
+                                    android:textColor="@color/colorPrimaryDark"
+                                    android:textSize="16sp" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                </android.widget.GridLayout>
+                <android.widget.GridLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:alignmentMode="alignMargins"
+                    android:columnCount="2"
+                    android:columnOrderPreserved="false"
+                    android:horizontalSpacing="5dp"
+                    android:rowCount="1">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/card_view_dashboard_lending"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/dashboard_flex_item_height"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="4dp"
+                        android:backgroundTint="@color/white"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardElevation="6dp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/ic_shape_header_stroke"
+                                android:orientation="horizontal">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Lending status"
+                                    android:padding="4dp"
+                                    android:textColor="@color/colorPrimaryDark"
+                                    android:textSize="18dp"/>
+                                <Space
+                                    android:layout_width="0dp"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1" />
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:padding="4dp"
+                                    android:src="@drawable/ic_investment"
+                                    android:tint="@color/colorPrimary"
+                                    android:gravity="end"/>
+                            </LinearLayout>
+
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:orientation="horizontal">
+
+<!--                                    <com.example.progressbar.CircularProgressView-->
+<!--                                        android:layout_width="60dp"-->
+<!--                                        android:layout_height="60dp"-->
+<!--                                        android:id="@+id/progress_view_dashboard_status"-->
+<!--                                        android:layout_marginTop="8dp"-->
+<!--                                        android:layout_marginStart="8dp"-->
+<!--                                        android:paddingEnd="16dp"-->
+<!--                                        android:paddingStart="8dp"-->
+<!--                                        app:animate="true"-->
+<!--                                        app:animateDuration="600"-->
+<!--                                        app:fillColor="@color/white"-->
+<!--                                        app:progressValue="10"-->
+<!--                                        app:progressColor="@color/colorPrimary"-->
+<!--                                        app:progressInterpolator="@android:anim/accelerate_decelerate_interpolator"-->
+<!--                                        app:progressRoundCap="true"-->
+<!--                                        app:progressTextColor="@color/colorPrimary"-->
+<!--                                        app:progressTextEnabled="true"-->
+<!--                                        app:progressTextSize="18sp"-->
+<!--                                        app:progressTextType="progress"-->
+<!--                                        app:progressWidth="4dp"-->
+<!--                                        app:startAngle="270"-->
+<!--                                        app:totalValue="100"-->
+<!--                                        app:totalWidth="5dp" />-->
+
+                                    <com.github.mikephil.charting.charts.PieChart
+                                        android:id="@+id/pie_chart_dashboard_lending"
+                                        android:layout_width="100dp"
+                                        android:layout_height="100dp"
+                                        android:layout_marginTop="8dp"
+                                        android:layout_marginLeft="16dp"
+                                        android:layout_marginRight="16dp"
+                                        android:fillViewport="true"/>
+
+
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginStart="32dp"
+                                        android:gravity="center_horizontal|center_vertical"
+                                        android:orientation="vertical">
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:gravity="center_horizontal|center_vertical"
+                                            android:orientation="horizontal">
+                                            <LinearLayout
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="match_parent"
+                                                android:paddingEnd="4dp"
+                                                android:orientation="vertical">
+                                                <TextView
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:text="@string/text_active"
+                                                    android:textColor="@color/colorPrimaryDark"
+                                                    android:textSize="16sp" />
+                                                <TextView
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:text="@string/text_completed"
+                                                    android:textColor="@color/green"
+                                                    android:textSize="16sp" />
+                                                <TextView
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:text="@string/text_lost"
+                                                    android:textColor="@color/red"
+                                                    android:textSize="16sp" />
+
+                                            </LinearLayout>
+                                            <LinearLayout
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="match_parent"
+                                                android:paddingStart="4dp"
+                                                android:orientation="vertical">
+                                                <TextView
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:text="40"
+                                                    android:textColor="@color/colorPrimaryDark"
+                                                    android:textSize="16sp" />
+                                                <TextView
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:text="22"
+                                                    android:textColor="@color/green"
+                                                    android:textSize="16sp" />
+                                                <TextView
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:text="0"
+                                                    android:textColor="@color/red"
+                                                    android:textSize="16sp" />
+
+                                            </LinearLayout>
+
+                                        </LinearLayout>
+
+                                    </LinearLayout>
+
+
+                                </LinearLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/card_view_dashboard_next_meeting"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/dashboard_flex_item_height"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="4dp"
+                        android:backgroundTint="@color/white"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardElevation="6dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/ic_shape_header_stroke"
+                                android:orientation="horizontal">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Event"
+                                    android:padding="4dp"
+                                    android:textColor="@color/colorPrimaryDark"
+                                    android:textSize="18dp"/>
+                                <Space
+                                    android:layout_width="0dp"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1" />
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:padding="4dp"
+                                    android:src="@drawable/ic_banking"
+                                    android:tint="@color/colorPrimary"
+                                    android:gravity="end"/>
+                            </LinearLayout>
+
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center_horizontal|center_vertical"
+                                android:orientation="vertical">
+
+                                <com.example.progressbar.CircularProgressView
+                                    android:layout_width="60dp"
+                                    android:layout_height="60dp"
+                                    android:id="@+id/progress_view_dashboard_next_meeting"
+                                    android:layout_marginTop="8dp"
+                                    app:animate="true"
+                                    app:animateDuration="600"
+                                    app:fillColor="@color/white"
+                                    app:progressValue="10"
+                                    app:progressColor="@color/colorPrimary"
+                                    app:progressInterpolator="@android:anim/accelerate_decelerate_interpolator"
+                                    app:progressRoundCap="true"
+                                    app:progressTextColor="@color/colorPrimary"
+                                    app:progressTextEnabled="true"
+                                    app:progressTextSize="18sp"
+                                    app:progressTextType="progress"
+                                    app:progressWidth="4dp"
+                                    app:startAngle="270"
+                                    app:totalValue="100"
+                                    app:totalWidth="5dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="12dp"
+                                    android:text="@string/app_name"
+                                    android:textColor="@color/colorPrimaryDark"
+                                    android:textSize="16sp" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                </android.widget.GridLayout>
+
+
+            </com.google.android.flexbox.FlexboxLayout>
+
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="Upcoming"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="16sp"/>
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="All"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="16sp"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:src="@drawable/ic_keyboard_arrow_right_black_24dp"
+                    android:tint="@color/colorPrimaryDark" />
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorPrimary"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_view_dashboard_notification"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:listitem="@layout/layout_view_recycler_item_dashboard_notification"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

@@ -1,0 +1,2 @@
+include ':app', ':expandablecardview', ':progressbar'
+rootProject.name='Lendvest'

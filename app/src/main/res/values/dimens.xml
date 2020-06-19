@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- When the fabAlignmentMode is set to the end, the fab should be offset by this amount. -->
+
+    <dimen name="dashboard_grid_item_width">180dp</dimen>
+    <dimen name="dashboard_grid_item_height">150dp</dimen>
+    <dimen name="dashboard_flex_item_width">120dp</dimen>
+    <dimen name="dashboard_flex_item_height">150dp</dimen>
+
+</resources>

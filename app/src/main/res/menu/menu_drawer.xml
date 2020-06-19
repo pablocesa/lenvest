@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <item
+        android:id="@+id/nav_item_1"
+        android:name="android:actionMenuTextColor"
+        android:title="@string/info_and_action">
+        <menu>
+            <group android:checkableBehavior="single">
+                <!--        <item-->
+                <!--            android:id="@+id/nav_home"-->
+                <!--            android:title="@string/home" />-->
+                <item
+                    android:id="@+id/menu_drawer_item_account"
+                    android:title="@string/account" />
+                <item
+                    android:id="@+id/menu_drawer_item_loan_request"
+                    android:title="@string/text_request_loan" />
+                <item
+                    android:id="@+id/nav_planner"
+                    android:title="@string/borrowers" />
+            </group>
+        </menu>
+    </item>
+    <item
+        android:id="@+id/nav_item_3"
+        android:title="@string/info_feedback">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_feedback"
+                    android:title="@string/feedback" />
+                <item
+                    android:id="@+id/nav_contact"
+                    android:title="@string/contact" />
+                <item
+                    android:id="@+id/nav_help"
+                    android:title="@string/help" />
+                <item
+                    android:id="@+id/nav_settings"
+                    android:title="@string/settings" />
+            </group>
+        </menu>
+    </item>
+
+
+</menu>
